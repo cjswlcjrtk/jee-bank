@@ -15,5 +15,6 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="C:/Users/user/eclipse-jee/jakarta-taglibs-standard-1.1.2/lib/jstl.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/user/eclipse-jee/jakarta-taglibs-standard-1.1.2/lib/standard.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/eclipse/jee-2019-06/eclipse/lombok.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

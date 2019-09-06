@@ -9,7 +9,7 @@
 </head>
 <div>
 	<h2>회원가입login</h2>
-	<form id="join_Form" action="<%=request.getContextPath()%>/member.do">
+	<form id="join_Form" action="<%=request.getContextPath()%>/customer.do">
 		아이디 <input type="text" name="id"/> <br/>
 		비빌번호<input type="text" name="pw"/> <br/>
 		<!-- 주민번호<input type="text" name="ssn"/> <br/>
@@ -18,7 +18,7 @@
 		 -->
 		<input type="hidden" name="action" value="login" />
 		<input type="hidden" name="directory" value="customer" />
-		<input type="hidden" name="dest" value="myPage" />
+		<input type="hidden" name="page" value="myPage" />
 		<input type="submit" id="btn" value="전송">
 		<!-- 
 		//id, pass, name, ssn, credit	

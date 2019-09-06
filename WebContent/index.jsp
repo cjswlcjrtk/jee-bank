@@ -24,12 +24,12 @@
 <script>
 $('#btn').click(function(){
 	alert('테스트 맥락');	
-	location.assign('<%=request.getContextPath()%>/member.do?action=move&directory=customer&dest=login');
+	location.assign('<%=request.getContextPath()%>/customer.do?directory=customer&page=login');
 });
 
 $('#join').click(function(){
 	alert('테스트 맥락2');
-	location.assign('<%=request.getContextPath()%>/member.do?action=move&directory=customer&dest=join');
+	location.assign('<%=request.getContextPath()%>/customer.do?directory=customer&page=join');
 });
 </script>
 </body>
