@@ -19,12 +19,13 @@ public class Command implements Order{
 	}
 	
 	public void setDomain() {
-		String path = request.getServletPath();
-		domain = path.replace(".do", "");
-		domain = domain.substring(1);
+		String path = request.getServletPath();//--->customar.do
+		domain = path.replace(".do", ""); // .do를 제거해라
+		domain = domain.substring(1); // 다음 인덱스 번호 1번부터 끝까지
 	}
 	
 	public void setPage() {
+		System.out.println("######page######" + page);
 		page = request.getParameter("page");
 	}
 	

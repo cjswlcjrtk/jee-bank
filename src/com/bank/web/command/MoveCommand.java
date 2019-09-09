@@ -9,6 +9,8 @@ public class MoveCommand extends Command{
 		setAction((request.getParameter("action")==null) 
 				? "move" : 
 					request.getParameter("action"));
+		//==>action=move를 디폴트로 처리한다
+		//==>왜냐하면 단순이도이 form태그 이동(=데이터이동)훨씬 많다.
 		execute();
 	}
 	@Override

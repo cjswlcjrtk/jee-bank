@@ -26,68 +26,58 @@ public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	protected void doGet(HttpServletRequest request, 
+	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, 
 	IOException {
-		System.out.println("MemberController에 도착함");
-		CustomerBean  param = new CustomerBean(); 
-		MemberService service = new MemberServiceImpl();
+//		System.out.println("MemberController에 도착함");
+//		CustomerBean  param = new CustomerBean(); 
+//		MemberService service = new MemberServiceImpl();
 		Receiver.init(request);
 		Receiver.cmd.execute();
-		if(!Receiver.cmd.getAction().equals("move")) {
-			
-			
-		}
-		switch(Receiver.cmd.getAction()) {		
-		
-		case "join" :	
-			System.out.println("여기타다?");
-			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
-			String name = request.getParameter("name");
-			String ssn = request.getParameter("ssn");
-			String credit = request.getParameter("credit");
-			
-			param.setCredit(credit);
-			param.setId(id);
-			param.setName(name);
-			param.setPw(pw);
-			param.setSsn(ssn);
-			System.out.println("회원정보" + param.toString());
-			Receiver.cmd.setPage("login");
-			service.join(param);
-			Sender.forward(request, response);
-			break;
-		case "login" :	
-			id = request.getParameter("id");
-			pw = request.getParameter("pw");
-			param.setId(id);
-			param.setPw(pw);
-			System.out.println("id확인 = " + id);
-			System.out.println("pw확인 = " + pw);
-			System.out.println("로그인 서비스 진입후 아이디, 비번");
-
-			CustomerBean cust = service.login(param);
-			
-			if(param.getId().equals(cust.getId())
-					&&
-					param.getPw().equals(cust.getPw())) {
-				System.out.println("<<<<<8>>>>>");
-				request.setAttribute("customer",param);
-				Sender.forward(request, response);
-			
-			}else {
-				System.out.println("<<<<<9>>>>>");	
-			request.getRequestDispatcher			
-	         (String.format(
-	        		 Constants.VIEW_PATH,
-	        		 request.getParameter("directory"),
-	        		 "login")).forward(request, response);				
-			}				
-			break;
-		case "existId" :
-			break;
-		}
+//		if(Receiver.cmd.getAction()==null) {
+//			Receiver.cmd.setPage();			
+//		}
+//		switch(Receiver.cmd.getAction()) {	
+//		case "join" :	
+//			System.out.println("여기타다?");
+//			String id = request.getParameter("id");
+//			String pw = request.getParameter("pw");
+//			String name = request.getParameter("name");
+//			String ssn = request.getParameter("ssn");
+//			String credit = request.getParameter("credit");
+//			
+//			param.setCredit(credit);
+//			param.setId(id);
+//			param.setName(name);
+//			param.setPw(pw);
+//			param.setSsn(ssn);
+//			System.out.println("회원정보" + param.toString());			
+//			service.join(param);
+//			Receiver.cmd.setPage("login");
+//			Receiver.cmd.execute();
+//			break;
+//		case "login" :	
+//			id = request.getParameter("id");
+//			pw = request.getParameter("pw");
+//			param.setId(id);
+//			param.setPw(pw);
+//			System.out.println("id확인 = " + id);
+//			System.out.println("pw확인 = " + pw);
+//			System.out.println("로그인 서비스 진입후 아이디, 비번");
+//
+//			CustomerBean cust = service.login(param);
+//	
+//			if(cust == null) {
+//				Receiver.cmd.setPage("login");
+//			}else{
+//				Receiver.cmd.setPage("myPage");
+//			}
+//			request.setAttribute("customer", cust);
+//			Receiver.cmd.execute();			
+//			break;
+//		case "existId" :
+//			break;
+//		}
 		Sender.forward(request, response);
 		
 // 아래 코드처럼 적게 되면 servlet이 늘어나고 결국엔 무거워지고 이게 쌓이면 다운, 터져버린다.
@@ -114,9 +104,6 @@ public class MemberController extends HttpServlet {
 //		rd.forward(request, response);	
 		
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

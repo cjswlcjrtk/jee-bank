@@ -1,7 +1,5 @@
 package com.bank.web.command;
 
-
-
 public interface Order {
-	public void execute();
+	public void execute() throws Exception;
 }

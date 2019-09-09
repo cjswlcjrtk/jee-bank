@@ -16,6 +16,7 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public void insertCustomer(CustomerBean param) {
 		try {
+			System.out.println("#####DAOImpl######");
 			File file = new File(Constants.FILE_PATH+"customer0905.txt");
 			@SuppressWarnings("resource")
 			BufferedWriter writer = 

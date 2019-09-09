@@ -1,3 +1,0 @@
-park,박형진,123123
-aaa,bbb,ccc
-sdf,fdfs,sdfsdf
